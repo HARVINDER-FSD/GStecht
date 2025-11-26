@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Users, Award, Shield, Zap, Code, Rocket, CheckCircle2, Globe } from 'lucide-react';
 import { Link } from '../router/Link';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { SEO } from '../components/SEO';
 import { ParticlesBackground } from '../components/ParticlesBackground';
+import { BookingForm } from '../components/BookingForm';
 
 export const About = () => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const values = [
     {
       icon: Shield,
@@ -77,16 +80,13 @@ export const About = () => {
               We're not just developers and marketers—we're strategic partners who architect digital solutions that drive measurable business growth.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="/contact">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                  Start Your Project
-                </Button>
-              </Link>
-              <Link to="/services/seo">
-                <Button size="lg" variant="outline" className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20">
-                  Explore Services
-                </Button>
-              </Link>
+              <Button 
+                size="lg" 
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+                onClick={() => setIsBookingOpen(true)}
+              >
+                Start Your Project
+              </Button>
             </div>
           </div>
         </div>
@@ -220,19 +220,22 @@ export const About = () => {
             Let's discuss how our expertise can accelerate your digital transformation and drive measurable results.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg">
-                Schedule a Consultation
-              </Button>
-            </Link>
-            <Link to="/services/seo">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg border-2 border-blue-600">
-                View Our Services
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              className="bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg"
+              onClick={() => setIsBookingOpen(true)}
+            >
+              Schedule a Consultation
+            </Button>
           </div>
         </div>
       </section>
+
+      <BookingForm 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)}
+        serviceType="General Consultation"
+      />
     </div>
   );
 };

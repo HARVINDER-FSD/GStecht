@@ -217,7 +217,6 @@ export const Header = () => {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-gray-900">Need help choosing?</p>
-                        <p className="text-xs text-gray-600 mt-0.5">Talk to our experts</p>
                       </div>
                       <Link to="/contact">
                         <button className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl hover:scale-105 active:scale-95">

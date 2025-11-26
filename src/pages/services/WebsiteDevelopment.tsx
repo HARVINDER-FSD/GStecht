@@ -1,58 +1,49 @@
+import { useState } from 'react';
 import { Code, Smartphone, Zap, Lock, Search, Globe, CheckCircle } from 'lucide-react';
 import { Link } from '../../router/Link';
 import { Button } from '../../components/ui/Button';
-import { UniqueServiceHero } from '../../components/UniqueServiceHero';
 import { ServiceFeatures } from '../../components/ServiceFeatures';
+import { WebDevIcon3D } from '../../components/icons/Icon3DSVG';
+import { BookingForm } from '../../components/BookingForm';
 
 export const WebsiteDevelopment = () => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const features = [
     {
       icon: Code,
       title: 'Custom Development',
       description: 'Tailored websites built with cutting-edge technologies to meet your unique requirements.',
       gradient: 'from-purple-500 to-indigo-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: Smartphone,
       title: 'Responsive Design',
       description: 'Websites that look and work perfectly on all devices and screen sizes.',
       gradient: 'from-blue-500 to-cyan-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: Zap,
       title: 'Performance Optimization',
       description: 'Lightning-fast loading speeds for better user experience and SEO.',
       gradient: 'from-yellow-500 to-orange-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: Lock,
       title: 'Security',
       description: 'Built-in security features to protect your site and user data.',
       gradient: 'from-red-500 to-pink-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: Search,
       title: 'SEO-Friendly',
       description: 'Clean code and structure optimized for search engines.',
       gradient: 'from-green-500 to-emerald-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: Globe,
       title: 'Content Management',
       description: 'Easy-to-use CMS for updating content without technical knowledge.',
       gradient: 'from-cyan-500 to-blue-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
   ];
 
@@ -67,19 +58,38 @@ export const WebsiteDevelopment = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      <UniqueServiceHero
-        badge="Modern Web Solutions"
-        badgeIcon={Code}
-        title="Website Development"
-        highlightText="Built for Success"
-        description="Build powerful, scalable websites that drive business growth. From simple landing pages to complex web applications, we create digital experiences that users love."
-        ctaText="Build Your Website"
-        ctaLink="/contact"
-        image="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format&fit=crop&q=80"
-        imageAlt="Modern Website Development"
-        variant="minimal"
-        accentColor="purple"
-      />
+      <div className="bg-gradient-to-br from-purple-50 to-indigo-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block mb-4">
+                <span className="text-sm font-semibold text-purple-600 uppercase tracking-wider bg-purple-100 px-4 py-2 rounded-full">Modern Web Solutions</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                Website Development <span className="text-purple-600">Built for Success</span>
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                Build powerful, scalable websites that drive business growth. From simple landing pages to complex web applications, we create digital experiences that users love.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-purple-600 hover:bg-purple-700"
+                  onClick={() => setIsBookingOpen(true)}
+                >
+                  Request a Quote
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute inset-0 bg-purple-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                <WebDevIcon3D size={300} className="relative z-10" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <ServiceFeatures
         title="Our Services"
@@ -109,26 +119,37 @@ export const WebsiteDevelopment = () => {
         </div>
       </section>
 
-      <section className="relative py-16 sm:py-20 md:py-24 bg-purple-600 text-white overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Ready to Build Your Website?</h2>
-          <p className="text-lg sm:text-xl mb-10 max-w-3xl mx-auto">
-            Let's create a stunning website that represents your brand and drives business growth
+      {/* Technologies We Use */}
+      <section id="portfolio" className="relative py-16 sm:py-20 md:py-24 bg-purple-600 text-white overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Technologies We Master</h2>
+          <p className="text-lg sm:text-xl mb-12 max-w-3xl mx-auto opacity-90">
+            We use cutting-edge technologies to build fast, secure, and scalable websites
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="bg-white text-purple-700 hover:bg-gray-50 shadow-xl">
-                Start Your Project
-              </Button>
-            </Link>
-            <Link to="/pricing">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-purple-700">
-                View Packages
-              </Button>
-            </Link>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {['React', 'Next.js', 'TypeScript', 'Node.js', 'WordPress', 'Shopify', 'Tailwind CSS', 'PostgreSQL'].map((tech) => (
+              <div key={tech} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all hover:scale-105">
+                <div className="text-xl font-bold">{tech}</div>
+              </div>
+            ))}
           </div>
+
+          <Button 
+            size="lg" 
+            className="bg-white text-purple-700 hover:bg-gray-50 shadow-xl"
+            onClick={() => setIsBookingOpen(true)}
+          >
+            Discuss Your Project
+          </Button>
         </div>
       </section>
+
+      <BookingForm 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)}
+        serviceType="Website Development"
+      />
     </div>
   );
 };

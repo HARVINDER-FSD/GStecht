@@ -21,6 +21,7 @@ import { Contact } from './pages/Contact';
 import { Pricing } from './pages/Pricing';
 import { Team } from './pages/Team';
 import { FAQ } from './pages/FAQ';
+import { Icon3DDemo } from './pages/Icon3DDemo';
 
 function App() {
   // Enable smooth scrolling throughout the app
@@ -46,6 +47,7 @@ function App() {
           <Route path="/pricing" component={<Pricing />} />
           <Route path="/team" component={<Team />} />
           <Route path="/faq" component={<FAQ />} />
+          <Route path="/3d-demo" component={<Icon3DDemo />} />
         </main>
         <Footer />
         <WhatsAppButton />

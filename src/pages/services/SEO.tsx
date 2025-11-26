@@ -1,59 +1,50 @@
+import { useState } from 'react';
 import { Search, TrendingUp, BarChart, FileText, Target, CheckCircle } from 'lucide-react';
 import { Link } from '../../router/Link';
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
-import { UniqueServiceHero } from '../../components/UniqueServiceHero';
 import { ServiceFeatures } from '../../components/ServiceFeatures';
+import { SEOIcon3D } from '../../components/icons/Icon3DSVG';
+import { BookingForm } from '../../components/BookingForm';
 
 export const SEO = () => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const features = [
     {
       icon: Search,
       title: 'Keyword Research',
       description: 'In-depth analysis to identify high-value keywords that drive qualified traffic.',
       gradient: 'from-blue-500 to-indigo-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: FileText,
       title: 'On-Page Optimization',
       description: 'Optimize your content, meta tags, and site structure for maximum visibility.',
       gradient: 'from-green-500 to-emerald-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: TrendingUp,
       title: 'Link Building',
       description: 'Build high-quality backlinks that boost your domain authority and rankings.',
       gradient: 'from-purple-500 to-pink-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: BarChart,
       title: 'Technical SEO',
       description: 'Ensure your site is technically sound with proper indexing and site speed.',
       gradient: 'from-orange-500 to-red-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: Target,
       title: 'Local SEO',
       description: 'Dominate local search results and attract nearby customers.',
       gradient: 'from-cyan-500 to-blue-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
     {
       icon: CheckCircle,
       title: 'SEO Audits',
       description: 'Comprehensive analysis of your site\'s SEO health with actionable recommendations.',
       gradient: 'from-teal-500 to-green-600',
-      link: '/contact',
-      linkText: 'Get Started',
     },
   ];
 
@@ -68,19 +59,38 @@ export const SEO = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      <UniqueServiceHero
-        badge="Rank #1 on Google"
-        badgeIcon={Search}
-        title="SEO Services That"
-        highlightText="Drive Results"
-        description="Dominate search results and drive organic traffic with our proven SEO strategies. We help businesses rank higher, attract more visitors, and convert them into customers."
-        ctaText="Get Started Today"
-        ctaLink="/contact"
-        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80"
-        imageAlt="SEO Analytics Dashboard"
-        variant="dots"
-        accentColor="blue"
-      />
+      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block mb-4">
+                <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider bg-blue-100 px-4 py-2 rounded-full">Rank #1 on Google</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                SEO Services That <span className="text-blue-600">Drive Results</span>
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                Dominate search results and drive organic traffic with our proven SEO strategies. We help businesses rank higher, attract more visitors, and convert them into customers.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-blue-600 hover:bg-blue-700"
+                  onClick={() => setIsBookingOpen(true)}
+                >
+                  Get Free SEO Audit
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute inset-0 bg-blue-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                <SEOIcon3D size={300} className="relative z-10" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <ServiceFeatures
         title="Our Services"
@@ -89,7 +99,7 @@ export const SEO = () => {
         features={features}
       />
 
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section id="process" className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -178,16 +188,13 @@ export const SEO = () => {
             Get a free SEO audit and discover opportunities to improve your search visibility and drive more organic traffic
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-50 shadow-2xl hover:shadow-glow group">
-                Request Free SEO Audit <Search className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/pricing">
-              <Button size="lg" variant="outline" className="border-2 border-white/80 text-white hover:bg-white hover:text-blue-700 backdrop-blur-sm">
-                View SEO Packages
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              className="bg-white text-blue-700 hover:bg-gray-50 shadow-2xl hover:shadow-glow group"
+              onClick={() => setIsBookingOpen(true)}
+            >
+              Claim Your Free Audit <Search className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+            </Button>
           </div>
           <div className="mt-12 flex items-center justify-center gap-8 text-sm text-blue-100">
             <div className="flex items-center gap-2">
@@ -205,6 +212,12 @@ export const SEO = () => {
           </div>
         </div>
       </section>
+
+      <BookingForm 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)}
+        serviceType="SEO Services"
+      />
     </div>
   );
 };

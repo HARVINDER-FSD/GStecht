@@ -9,11 +9,11 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-4 sm:mb-6">
+            <div className="flex items-center mb-4 sm:mb-6">
               <img 
                 src="/assets/GS TECHT LOGO.png" 
                 alt="GS Tech IT Solutions" 
-                className="h-10 sm:h-12 w-auto bg-white rounded-lg px-3 py-2"
+                className="h-12 sm:h-14 md:h-16 w-auto object-contain bg-white rounded-lg p-2"
               />
             </div>
             <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 leading-relaxed">

@@ -8,10 +8,16 @@ export const ModernHeroSection = () => {
     <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 pt-24 sm:pt-28 md:pt-32 pb-20 sm:pb-28 md:pb-32 lg:pb-40">
       {/* Background Layer - z-0 */}
       <div className="absolute inset-0 z-0">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        {/* Full Size World Map - Lowest layer */}
+        <div className="absolute inset-0">
+          <img 
+            src="/assets/world.jpeg" 
+            alt="World Map" 
+            className="w-full h-full object-cover opacity-50"
+          />
+        </div>
         
-        {/* Gradient orbs */}
+        {/* Gradient orbs - Top layer */}
         <div className="absolute top-0 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-gray-500/10 rounded-full blur-3xl"></div>
       </div>
@@ -32,18 +38,9 @@ export const ModernHeroSection = () => {
           </span>
         </h1>
 
-        {/* Logo Watermark - In content flow */}
-        <div className="mb-8 sm:mb-10 md:mb-12 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          <img 
-            src="/assets/GS TECHT LOGO.png" 
-            alt="GS Tech Logo" 
-            className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl h-auto object-contain opacity-20 grayscale"
-          />
-        </div>
-
         {/* Description */}
         <div className="mb-8 sm:mb-10 animate-slide-up mx-4 max-w-3xl text-center" style={{ animationDelay: '0.2s' }}>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-800 font-medium leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-900 font-medium leading-relaxed bg-white/70 backdrop-blur-sm px-6 py-4 rounded-2xl">
             We help businesses scale with data-driven digital marketing, cutting-edge technology, and proven strategies that deliver real results.
           </p>
         </div>
