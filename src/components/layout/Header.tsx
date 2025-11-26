@@ -120,8 +120,32 @@ export const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group relative overflow-hidden" style={{ perspective: '1000px' }} onClick={(e) => {
+            const logo = document.getElementById('header-logo');
+            if (logo) {
+              logo.classList.remove('animate-jelly');
+              void logo.offsetWidth; // Trigger reflow
+              logo.classList.add('animate-jelly');
+            }
+            
+            // Create ripple effect
+            const link = e.currentTarget;
+            const ripple = document.createElement('span');
+            const rect = link.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            ripple.classList.add('ripple');
+            
+            link.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+          }}>
             <img 
+              id="header-logo"
               src="/assets/GS TECHT LOGO.png" 
               alt="GS Tech IT Solutions" 
               className="h-12 w-auto transition-all duration-300 group-hover:scale-105"

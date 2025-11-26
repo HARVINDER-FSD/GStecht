@@ -9,6 +9,7 @@ import { ModernHeroSection } from '../components/ModernHeroSection';
 import { SEO } from '../components/SEO';
 import { SEOIcon3D, DigitalMarketingIcon3D, SocialMediaIcon3D } from '../components/icons/Icon3DSVG';
 import { BookingForm } from '../components/BookingForm';
+import { ParticlesBackground } from '../components/ParticlesBackground';
 
 export const Home = () => {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -90,34 +91,45 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 text-black overflow-hidden bg-gradient-to-br from-gray-50 to-blue-50">
-        {/* Robot Hand Background - Hidden on mobile, visible on desktop */}
+      {/* CTA Section with Particles Background */}
+      <section className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden bg-white">
+        {/* Particles.js Background */}
+        <ParticlesBackground />
+        
+        {/* Robot Hand Background - Responsive positioning */}
         <div 
-          className="absolute inset-0 bg-no-repeat hidden lg:block"
+          className="absolute inset-0 bg-no-repeat hidden lg:block opacity-30"
           style={{
-            backgroundImage: 'url(/assets/2272466-removebg-preview.png)',
-            backgroundSize: 'auto 50%',
-            backgroundPosition: 'left 110%',
+            backgroundImage: 'url(/assets/2272466-removebg-preview1.png)',
+            backgroundSize: 'auto 70%',
+            backgroundPosition: 'left bottom',
           }}
         ></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="mx-auto lg:ml-auto lg:mr-0 max-w-2xl lg:max-w-3xl text-center lg:text-right">
-            <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-5 md:mb-6 leading-tight text-gray-900">
-              Ready to Grow Your Business?
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-7 md:mb-8 text-gray-700 leading-relaxed max-w-xl lg:max-w-2xl mx-auto lg:ml-auto lg:mr-0">
-              Let's discuss how we can help you achieve your digital marketing goals and drive measurable results
-            </p>
-            <div className="flex justify-center lg:justify-end mb-6 sm:mb-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900">
+            Ready to Grow Your Business?
+          </h2>
+          
+          <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can help you achieve your digital marketing goals and drive measurable results
+          </p>
+          
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button 
+              className="bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg"
+              onClick={() => setIsBookingOpen(true)}
+            >
+              Schedule a Consultation
+            </Button>
+            
+            <Link to="/services/seo">
               <Button 
-                className="w-auto bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-2xl hover:shadow-glow group px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base"
-                onClick={() => setIsBookingOpen(true)}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg border-2 border-blue-600"
               >
-                Schedule Free Consultation <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                View Our Services
               </Button>
-            </div>
-
+            </Link>
           </div>
         </div>
       </section>
