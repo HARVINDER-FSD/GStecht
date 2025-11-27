@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { Card } from '../components/ui/Card';
 
 export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -21,6 +20,7 @@ export const FAQ = () => {
           question: 'Do you work with businesses in my industry?',
           answer: 'Yes! We have experience across virtually all industries including e-commerce, healthcare, finance, technology, real estate, and more. Our strategies are customized to your specific industry needs.',
         },
+        
       ],
     },
     {
@@ -78,41 +78,45 @@ export const FAQ = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
-            <p className="text-xl text-blue-100">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Frequently Asked Questions</h1>
+            <p className="text-base sm:text-lg md:text-xl text-blue-100">
               Find answers to common questions about our services, pricing, and process
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqs.map((category, catIndex) => (
-            <div key={catIndex} className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">{category.category}</h2>
-              <div className="space-y-4">
+            <div key={catIndex} className="mb-8 sm:mb-10 md:mb-12">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">{category.category}</h2>
+              <div className="space-y-3 sm:space-y-4">
                 {category.questions.map((faq, qIndex) => {
                   const globalIndex = catIndex * 100 + qIndex;
                   const isOpen = openIndex === globalIndex;
 
                   return (
-                    <Card key={qIndex} className="cursor-pointer" onClick={() => setOpenIndex(isOpen ? null : globalIndex)}>
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-gray-800 pr-4">{faq.question}</h3>
+                    <div 
+                      key={qIndex} 
+                      className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 cursor-pointer hover:shadow-lg transition-shadow"
+                      onClick={() => setOpenIndex(isOpen ? null : globalIndex)}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-800 flex-1">{faq.question}</h3>
                         <ChevronDown
-                          className={`w-6 h-6 text-blue-600 flex-shrink-0 transition-transform ${
+                          className={`w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0 transition-transform mt-0.5 ${
                             isOpen ? 'rotate-180' : ''
                           }`}
                         />
                       </div>
                       {isOpen && (
-                        <p className="text-gray-600 mt-4 leading-relaxed">{faq.answer}</p>
+                        <p className="text-sm sm:text-base text-gray-600 mt-3 sm:mt-4 leading-relaxed">{faq.answer}</p>
                       )}
-                    </Card>
+                    </div>
                   );
                 })}
               </div>
@@ -121,15 +125,15 @@ export const FAQ = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Still Have Questions?</h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">Still Have Questions?</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
             Our team is here to help. Get in touch and we'll answer any questions you have.
           </p>
           <a
             href="/contact"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+            className="inline-block bg-blue-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm sm:text-base"
           >
             Contact Us
           </a>

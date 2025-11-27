@@ -6,7 +6,7 @@ import { Button } from '../components/ui/Button';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    name: '',                                                                                           
     email: '',
     phone: '',
     company: '',
