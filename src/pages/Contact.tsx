@@ -88,8 +88,8 @@ export const Contact = () => {
                   </div>
                   <div className="text-left flex-1 min-w-0">
                     <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1">Phone</h3>
-                    <p className="text-xs sm:text-sm text-gray-600 truncate">+1 (555) 123-4567</p>
-                    <p className="text-[10px] sm:text-xs text-gray-500 mt-1">Mon-Fri 9am-6pm EST</p>
+                    <a href="tel:+918320023540" className="text-xs sm:text-sm text-gray-600 hover:text-blue-600 transition-colors">+91 83200 23540</a>
+                    <p className="text-[10px] sm:text-xs text-gray-500 mt-1">Mon-Fri 9am-6pm IST</p>
                   </div>
                 </div>
 
@@ -99,7 +99,7 @@ export const Contact = () => {
                   </div>
                   <div className="text-left flex-1 min-w-0">
                     <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1">Email</h3>
-                    <p className="text-xs sm:text-sm text-gray-600 truncate">info@digitalpro.com</p>
+                    <a href="mailto:gstecht7@gmail.com" className="text-xs sm:text-sm text-gray-600 hover:text-blue-600 transition-colors break-all">gstecht7@gmail.com</a>
                     <p className="text-[10px] sm:text-xs text-gray-500 mt-1">24/7 support available</p>
                   </div>
                 </div>
@@ -110,8 +110,8 @@ export const Contact = () => {
                   </div>
                   <div className="text-left flex-1 min-w-0">
                     <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1">Office</h3>
-                    <p className="text-xs sm:text-sm text-gray-600 truncate">123 Business Street</p>
-                    <p className="text-[10px] sm:text-xs text-gray-500 mt-1">New York, NY 10001</p>
+                    <p className="text-xs sm:text-sm text-gray-600">F/F7, Nakshatra Arcade, IOC Road</p>
+                    <p className="text-[10px] sm:text-xs text-gray-500 mt-1">Chandkheda, Ahmedabad - 382424</p>
                   </div>
                 </div>
               </div>
